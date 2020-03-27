@@ -36,7 +36,7 @@ namespace ResxTranslator
 		                                                                      		{"ru-RU", "ru"},
 		                                                                      		{"sv-SE", "sv"},
 		                                                                      		{"tr-TR", "tr"},
-		                                                                      		{"zh-CN", "zh-CN"}
+		                                                                      		{"zh-Hant", "zh-Hant"}
 		                                                                      	};
 
 		public void Translate()
@@ -74,7 +74,7 @@ namespace ResxTranslator
 				}
 				foreach (string file in files)
 				{
-					if (Regex.IsMatch(file.ToLower(), @"\.[a-zA-Z]{2}\-[a-zA-Z]{2}\.resx$")) continue; //skip non-english files
+					if (Regex.IsMatch(file.ToLower(), @"\.[a-zA-Z]{2}\-[a-zA-Z]{2,4}\.resx$")) continue; //skip non-english files
 
 					TranslateFile(file, locale, newDir);
 				}
