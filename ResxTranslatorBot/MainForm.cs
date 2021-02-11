@@ -81,7 +81,7 @@ namespace ResxTranslator
 			}
 
 			Translator translator = new Translator();
-			translator.Translate();
+			translator.Translate(tbResName.Text);
 		}
 
 		private void lblSelectAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

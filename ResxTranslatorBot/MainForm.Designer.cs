@@ -44,6 +44,8 @@
 			this.lblSelectAll = new System.Windows.Forms.LinkLabel();
 			this.txtConsole = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
+			this.tbResName = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -78,6 +80,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.label5);
+			this.groupBox1.Controls.Add(this.tbResName);
 			this.groupBox1.Controls.Add(this.tbOutputPath);
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Controls.Add(this.btnOutputBrowse);
@@ -147,7 +151,7 @@
 			// cbCreateSubFolderForEveryLang
 			// 
 			this.cbCreateSubFolderForEveryLang.AutoSize = true;
-			this.cbCreateSubFolderForEveryLang.Location = new System.Drawing.Point(9, 149);
+			this.cbCreateSubFolderForEveryLang.Location = new System.Drawing.Point(9, 127);
 			this.cbCreateSubFolderForEveryLang.Name = "cbCreateSubFolderForEveryLang";
 			this.cbCreateSubFolderForEveryLang.Size = new System.Drawing.Size(385, 17);
 			this.cbCreateSubFolderForEveryLang.TabIndex = 0;
@@ -183,6 +187,22 @@
 			this.label4.Size = new System.Drawing.Size(387, 65);
 			this.label4.TabIndex = 7;
 			this.label4.Text = resources.GetString("label4.Text");
+			// 
+			// tbResName
+			// 
+			this.tbResName.Location = new System.Drawing.Point(9, 171);
+			this.tbResName.Name = "tbResName";
+			this.tbResName.Size = new System.Drawing.Size(326, 20);
+			this.tbResName.TabIndex = 7;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(6, 155);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(112, 13);
+			this.label5.TabIndex = 8;
+			this.label5.Text = "Translate only this res:";
 			// 
 			// MainForm
 			// 
@@ -225,5 +245,7 @@
 		private System.Windows.Forms.LinkLabel lblSelectAll;
 		private System.Windows.Forms.TextBox txtConsole;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.TextBox tbResName;
 	}
 }

@@ -24,14 +24,14 @@ namespace ResxTranslator
 			if (input.Length > 100) return "";
 
 			string url = String.Format("http://api.mymemory.translated.net/get?q={0}&langpair=en|{1}&de=insertyouremail@gmail.com", Uri.EscapeUriString(input).Replace("#", "%23"), toLanguage);
-			WebClient webClient = new WebClient();
-			webClient.Encoding = System.Text.Encoding.UTF8;
-			string result = webClient.DownloadStringUsingResponseEncoding(url);
+			using (WebClient webClient = new WebClient())
+			{
+				webClient.Encoding = System.Text.Encoding.UTF8;
+				string result = webClient.DownloadStringUsingResponseEncoding(url);
 
-			dynamic x = JsonConvert.DeserializeObject(result);
-			result = x.responseData.translatedText;
-
-			return result.Trim();
+				dynamic x = JsonConvert.DeserializeObject(result);
+				return ((string)x.responseData.translatedText).Trim();
+			}
 		}
 
 		private static string DownloadStringUsingResponseEncoding(this WebClient client, string address)

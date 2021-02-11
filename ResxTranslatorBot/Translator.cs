@@ -39,8 +39,12 @@ namespace ResxTranslator
 		                                                                      		{"zh-Hant", "zh-Hant"}
 		                                                                      	};
 
-		public void Translate()
+		private string _specificResName;
+
+		public void Translate(string specificResName = null)
 		{
+			_specificResName = specificResName;
+
 			TranslateFiles(Settings.InputFolderPath);
 
 			Console.Write("Finished!");
@@ -122,6 +126,8 @@ namespace ResxTranslator
 				}
 				else
 				{
+					if (!string.IsNullOrEmpty(_specificResName) && _specificResName != d.Key.ToString()) continue;
+
 					string originalString = d.Value.ToString();
 					if (!string.IsNullOrEmpty(originalString.Trim()))
 					{
