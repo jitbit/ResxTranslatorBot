@@ -21,7 +21,7 @@ namespace ResxTranslator
 		/// <returns>Translated to String</returns>
 		public static string TranslateText(string input, string toLanguage)
 		{
-			if (input.Length > 100) return "";
+			if (input.Length > 120) return "";
 
 			string url = String.Format("http://api.mymemory.translated.net/get?q={0}&langpair=en|{1}&de=insertyouremail@gmail.com", Uri.EscapeUriString(input).Replace("#", "%23"), toLanguage);
 			using (WebClient webClient = new WebClient())

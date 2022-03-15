@@ -80,8 +80,17 @@ namespace ResxTranslator
 				Settings.SaveIfLanguageIsTranslated(item.ToString(), true);
 			}
 
-			Translator translator = new Translator();
-			translator.Translate(tbResName.Text);
+			btnGo.Enabled = false;
+
+			Thread thread = new Thread(() =>
+			{
+
+				Translator translator = new Translator();
+				translator.Translate(tbResName.Text);
+
+				btnGo.Invoke((MethodInvoker)delegate () { btnGo.Enabled = true; });
+			});
+			thread.Start();
 		}
 
 		private void lblSelectAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -103,7 +112,10 @@ namespace ResxTranslator
 			public override void Write(char value)
 			{
 				base.Write(value);
-				_output.AppendText(value.ToString()); // When character data is written, append it to the text box.
+				_output.Invoke((MethodInvoker)delegate ()
+				{
+					_output.AppendText(value.ToString()); // When character data is written, append it to the text box.
+				});
 			}
 
 			public override Encoding Encoding
